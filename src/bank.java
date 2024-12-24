@@ -10,7 +10,7 @@ public class bank {
         while (choix != 5)
         {
             System.out.println("--------------------------");
-            
+
             System.out.println("1 >> Cree un compte");
             System.out.println("2 >> Cree un client");
             System.out.println("3 >> Gerer les operations");
@@ -41,11 +41,6 @@ public class bank {
                     System.exit(0);
                     break;
             }
-
-
-
-
-
         }
 
 
