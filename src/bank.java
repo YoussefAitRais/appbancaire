@@ -75,7 +75,8 @@ public class bank {
             }
 
         }
-
+    }
+    public static void menuCompte(){
 
 
 
