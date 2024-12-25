@@ -17,7 +17,7 @@ public class Compte {
         this.numero = numero;
         this.solde = solde;
         this.proprietaire = proprietaire;
-
+        
     }
 
 
