@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Client {
 
@@ -15,6 +17,11 @@ public Client (String nom , String prenom , String adresse , String email , Stri
     this.adresse = adresse;
     this.email = email;
     this.tel = tel;
+
+}
+
+public Client ()
+{
 
 }
 
@@ -66,7 +73,7 @@ public Client (String nom , String prenom , String adresse , String email , Stri
         this.tel = tel;
     }
 
-    public void ajoutrClient () {
+    public void ajouterClient () {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Saisir le Nom");

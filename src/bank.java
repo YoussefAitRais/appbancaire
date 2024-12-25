@@ -25,7 +25,7 @@ public class bank {
             switch (choix){
 
                 case 1 :
-                // Creation dun compte
+                    menuclient();
                     break;
                 case 2 :
                 // Creation d'un client
@@ -47,6 +47,8 @@ public class bank {
     }
     public static void menuclient()
     {
+        Client client = new Client();
+
         int choix = 0;
                 while (choix!=2)
         {
@@ -60,10 +62,13 @@ public class bank {
             switch (choix)
             {
                 case 1 :
+                    client.ajouterClient();
                     break;
                 case 2 :
+                    client.afficherClient();
                     break;
                 case 3:
+                    System.out.println(" Voila Les Information de Client");
                     break;
 
 
