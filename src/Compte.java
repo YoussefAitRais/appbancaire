@@ -44,8 +44,6 @@ public class Compte {
         this.solde+=solde;
         System.out.println("Votre depot est " + solde);
 
-
-
     }
 
 

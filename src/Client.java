@@ -75,23 +75,11 @@ public Client ()
         this.tel = tel;
     }
 
-    public static void (){
-
-    }
-
-
-
-
-
-
-
-
-
-
     public void ajouterClient () {
 
         System.out.println("Saisir le Nom");
-        String nom = scanner.next();
+        String nom = scanner.nextLine();
+
 
         System.out.println("Saisir le Prenom");
         String prenom = scanner.next();
@@ -108,6 +96,47 @@ public Client ()
 
         client.add(new Client(nom, prenom, email, adresse, tel));
     }
+
+
+    public boolean valideNom ( String text ){
+
+        Pattern pattern = Pattern.compile( "\"[a-zA-Z\\s]+\"");
+        Matcher matcher = pattern.matcher(text);
+
+        return matcher.find();
+
+    }
+
+    public boolean validePrnom (String text){
+
+        Pattern pattern = Pattern.compile("\"[a-zA-Z\\s]+\"");
+        Matcher matcher = pattern.matcher(text);
+        return matcher.find();
+    }
+
+    public boolean valideEmail (String text)
+    {
+        Pattern pattern = Pattern.compile("\"^([a-z;A-Z0-9\\-_\\.]+)@([a-z]+)\\.([a-z]+)$\"gm");
+        Matcher matcher = pattern.matcher(text);
+        return matcher.find();
+    }
+
+    public boolean valideAdresse (String text)
+    {
+        Pattern pattern = Pattern.compile("\"[a-zA-z0-9\\°\\s]+\"gm");
+        Matcher matcher = pattern.matcher(text);
+        return matcher.find();
+    }
+
+    public boolean valideTel (String text)
+    {
+        Pattern pattern = Pattern.compile("\"[0-9]+\"gm");
+        Matcher matcher = pattern.matcher(text);
+        return matcher.find();
+    }
+
+
+
     public void afficherClient(){
 
     for ( int i = 0 ; i< client.size() ; i++) {
