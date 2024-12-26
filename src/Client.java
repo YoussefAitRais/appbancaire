@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 public class Client {
 
+    Scanner scanner = new Scanner(System.in);
+
     private int id;
     private String nom, prenom, adresse, email, tel;
     private ArrayList<Client> client = new ArrayList();
@@ -73,8 +75,20 @@ public Client ()
         this.tel = tel;
     }
 
+    public static void (){
+
+    }
+
+
+
+
+
+
+
+
+
+
     public void ajouterClient () {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Saisir le Nom");
         String nom = scanner.next();
@@ -110,10 +124,6 @@ public Client ()
     }
 
     }
-
-
-
-
 
     }
 

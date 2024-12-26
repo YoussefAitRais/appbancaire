@@ -28,7 +28,7 @@ public class bank {
                     menuclient();
                     break;
                 case 2 :
-                // Creation d'un client
+                    menuCompte();
                     break;
                 case 3 :
 
@@ -78,6 +78,31 @@ public class bank {
     }
     public static void menuCompte(){
 
+    Compte compte = new Compte();
+
+    int choix = 0;
+            while (choix!=3)
+
+            {
+                System.out.println("Cree Un Compte");
+                System.out.println("Afficher Le Compte");
+
+                choix = scanner.nextInt();
+
+                switch (choix)
+                {
+
+                    case 1 :
+                        compte.creeCompte();
+                        break;
+                    case 2 :
+                        compte.depotCompte();
+                        break;
+                }
+
+
+
+            }
 
 
 

@@ -1,46 +1,48 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 public class Compte {
 
-    private int numero;
+    private int id;
+    private double numero;
     private double solde;
     private Client  proprietaire;
     private ArrayList<Compte> comptes = new ArrayList<>();
 
+    Scanner scanner = new Scanner(System.in);
 
-    public Compte (int numero, float solde, Client proprietaire) {
-
+    public Compte () {
+        this.id = id;
         this.numero = numero;
         this.solde = solde;
-        this.Client = proprietaire;
+        this.proprietaire = null;
 
     }
 
-    public Compte (){
+    public Compte (double solde, double numero){
 
     }
 
     public void creeCompte(){
 
-        Scanner scanner = new Scanner(System.in);
+
 
         System.out.println(" -> Veuillez Saisir Le Numero De Compte");
-        int numero = scanner.nextInt();
+        double numero = scanner.nextInt();
 
         System.out.println("Veullez Saisir Votre Solde");
         double solde = scanner.nextDouble();
 
-        System.out.println(" Votre Proprietere");
+        comptes.add(new Compte(solde,numero));
 
+    }
 
+    public void depotCompte(){
 
-
-
+        System.out.println(" -> Veuillez Depot Votre Solde");
+        double solde = scanner.nextDouble();
+        this.solde+=solde;
+        System.out.println("Votre depot est " + solde);
 
 
 
