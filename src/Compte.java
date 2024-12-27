@@ -3,23 +3,23 @@ import java.util.Scanner;
 
 public class Compte {
 
-    private int id;
-    private double numero;
+
+    private Double numero;
     private double solde;
     private Client  proprietaire;
     private ArrayList<Compte> comptes = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
 
-    public Compte () {
-        this.id = id;
-        this.numero = numero;
-        this.solde = solde;
+    public Compte (double numero, double solde ) {
+
+        this.numero = this.numero;
+        this.solde = this.solde;
         this.proprietaire = null;
 
     }
 
-    public Compte (double solde, double numero){
+    public Compte (){
 
     }
 
@@ -28,7 +28,7 @@ public class Compte {
 
 
         System.out.println(" -> Veuillez Saisir Le Numero De Compte");
-        double numero = scanner.nextInt();
+        Double numero = scanner.nextDouble();
 
         System.out.println("Veullez Saisir Votre Solde");
         double solde = scanner.nextDouble();

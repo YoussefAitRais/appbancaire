@@ -75,55 +75,80 @@ public Client ()
         this.tel = tel;
     }
 
-    public void ajouterClient () {
-
+    public void ajouterClient() {
         System.out.println("Saisir le Nom");
-        String nom = scanner.nextLine();
+        String nom = scanner.next();
 
+
+        while (!valideNom(nom)) {
+            System.out.println("Entrer un nom valide (espaces autorisés, lettres seulement)");
+            nom = scanner.next();
+        }
 
         System.out.println("Saisir le Prenom");
         String prenom = scanner.next();
 
+        while(!validePrnom(prenom)){
+            System.out.println("Entrer un prenom valide (espaces autorisés, lettres seulement");
+            prenom = scanner.next();
+        }
+
         System.out.println("Saisir le Adresse");
         String adresse = scanner.next();
+
+         while (!valideAdresse(adresse))
+         {
+             System.out.println("Entrer Votre Adresse Valide");
+             adresse = scanner.next();
+         }
 
         System.out.println("Saisir le Email");
         String email = scanner.next();
 
+        while(!valideEmail(email)){
+            System.out.println("Entrer un Email valide (example@domain.com)");
+            email = scanner.next();
+        }
+
         System.out.println("Saisir le Telephone");
         String tel = scanner.next();
+
+        while(!valideTel(tel)){
+            System.out.println("Entrer Votre valide");
+            tel = scanner.next();
+        }
 
 
         client.add(new Client(nom, prenom, email, adresse, tel));
     }
 
 
-    public boolean valideNom ( String text ){
+    public static boolean valideNom ( String text ){
 
-        Pattern pattern = Pattern.compile( "\"[a-zA-Z\\s]+\"");
+        Pattern pattern = Pattern.compile( "[a-zA-Z\\\\s]+");
         Matcher matcher = pattern.matcher(text);
 
-        return matcher.find();
+        return matcher.matches();
 
     }
 
     public boolean validePrnom (String text){
 
-        Pattern pattern = Pattern.compile("\"[a-zA-Z\\s]+\"");
+        Pattern pattern = Pattern.compile("[a-zA-Z\\\\s]+");
         Matcher matcher = pattern.matcher(text);
-        return matcher.find();
+        return matcher.matches();
     }
 
     public boolean valideEmail (String text)
     {
-        Pattern pattern = Pattern.compile("\"^([a-z;A-Z0-9\\-_\\.]+)@([a-z]+)\\.([a-z]+)$\"gm");
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+\n");
         Matcher matcher = pattern.matcher(text);
-        return matcher.find();
+        return matcher.find();§§
     }
 
     public boolean valideAdresse (String text)
     {
-        Pattern pattern = Pattern.compile("\"[a-zA-z0-9\\°\\s]+\"gm");
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9\\s]+");
         Matcher matcher = pattern.matcher(text);
         return matcher.find();
     }
