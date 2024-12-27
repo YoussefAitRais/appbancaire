@@ -143,7 +143,7 @@ public Client ()
     {
         Pattern pattern = Pattern.compile("[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+\n");
         Matcher matcher = pattern.matcher(text);
-        return matcher.find();§§
+        return matcher.find();
     }
 
     public boolean valideAdresse (String text)
