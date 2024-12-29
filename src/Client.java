@@ -6,19 +6,22 @@ import java.util.regex.Pattern;
 public class Client {
 
     Scanner scanner = new Scanner(System.in);
-
+    static public int count = 1;
     private int id;
     private String nom, prenom, adresse, email, tel;
-    private ArrayList<Client> client = new ArrayList();
+    private ArrayList<Compte> comptes = new ArrayList<>();
+
 
 
 public Client (String nom , String prenom , String adresse , String email , String tel)
 {
+    this.id = count;
     this.nom = nom;
     this.prenom = prenom;
     this.adresse = adresse;
     this.email = email;
     this.tel = tel;
+    count++;
 
 }
 
@@ -75,6 +78,12 @@ public Client ()
         this.tel = tel;
     }
 
+    public ArrayList<Compte> getComptes(){return this.comptes;}
+
+    public void setComptes(Compte compte){
+        this.comptes.add(compte);
+    }
+
     public void ajouterClient() {
         System.out.println("Saisir le Nom");
         String nom = scanner.next();
@@ -119,7 +128,7 @@ public Client ()
         }
 
 
-        client.add(new Client(nom, prenom, email, adresse, tel));
+       Bank.clients.add(new Client(nom, prenom, email, adresse, tel));
     }
 
 
@@ -141,7 +150,7 @@ public Client ()
 
     public boolean valideEmail (String text)
     {
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+\n");
+        Pattern pattern = Pattern.compile("^([a-zA-Z0-9_.-]+)@([a-z]+)\\.([a-z]+)$");
         Matcher matcher = pattern.matcher(text);
         return matcher.find();
     }
@@ -155,7 +164,7 @@ public Client ()
 
     public boolean valideTel (String text)
     {
-        Pattern pattern = Pattern.compile("\"[0-9]+\"gm");
+        Pattern pattern = Pattern.compile("^((06)|(05)|(07))([0-9]{8})$");
         Matcher matcher = pattern.matcher(text);
         return matcher.find();
     }
@@ -164,21 +173,33 @@ public Client ()
 
     public void afficherClient(){
 
-    for ( int i = 0 ; i< client.size() ; i++) {
+        for ( Client client : Bank.clients ) {
 
 
-        System.out.println(" Les Listes Des Client");
-        System.out.println(" -> Le ID est :" + client.get(i).getId());
-        System.out.println(" -> Le Nom est : " + client.get(i).getNom());
-        System.out.println(" -> Le Prenom est : " + client.get(i).getPrenom());
-        System.out.println(" -> Le Adresse est : " + client.get(i).getAdresse());
-        System.out.println(" -> Le Email est : " + client.get(i).getEmail());
-        System.out.println(" -> Le Telephone est : " + client.get(i).getTel());
+            System.out.println(" Les Listes Des Client");
+            System.out.println(" -> Le ID est :" + client.getId());
+            System.out.println(" -> Le Nom est : " + client.getNom());
+            System.out.println(" -> Le Prenom est : " + client.getPrenom());
+            System.out.println(" -> Le Adresse est : " + client.getAdresse());
+            System.out.println(" -> Le Email est : " + client.getEmail());
+            System.out.println(" -> Le Telephone est : " + client.getTel());
 
-    }
-
-    }
+        }
 
     }
+
+    public Client chercherClientParId ( int clientId ) {
+
+        for ( Client client : Bank.clients ) {
+
+            if ( clientId == client.getId()){
+                return client ;
+            }
+        }
+
+        return null;
+    }
+
+}
 
 

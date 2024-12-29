@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class bank {
+public class Bank {
     static Scanner scanner = new Scanner(System.in);
-
+    public static ArrayList<Client> clients = new ArrayList();
+    public static ArrayList<Compte> comptes = new ArrayList<>();
 
     public static void main(String[] args) {
         int choix = 0;
@@ -25,13 +27,13 @@ public class bank {
             switch (choix){
 
                 case 1 :
+                    menuCompte();
                     break;
                 case 2 :
                     menuclient();
                     break;
                 case 3 :
-
-                // Gerant des operation
+                    menuOperation();
                     break;
                 case 4:
                     // Gerant des operation
@@ -102,5 +104,27 @@ public class bank {
 
 
             }
+    }
+    public static void menuOperation(){
+
+        Operation operation = new Operation();
+
+        int choix = 0;
+        while (choix!=3)
+
+        {
+            System.out.println("Cree un operation");
+            System.out.println("1-> Effectuer un depot");
+
+            choix = scanner.nextInt();
+
+            switch (choix)
+            {
+
+                case 1 :
+                    operation.depotOperation();
+                    break;
+            }
+        }
     }
 }
