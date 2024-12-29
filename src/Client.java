@@ -185,7 +185,6 @@ public Client ()
             System.out.println(" -> Le Telephone est : " + client.getTel());
 
         }
-
     }
 
     public Client chercherClientParId ( int clientId ) {
