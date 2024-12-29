@@ -39,7 +39,6 @@ public class Bank {
                     // Gerant des operation
                     break;
                 case 5:
-                //Quiter le programme
                     System.exit(0);
                     break;
             }
